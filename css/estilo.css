@@ -1,0 +1,16 @@
+
+#divPlayer1 {
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    background-color: red;
+    opacity: 0.25;
+}
+
+#divPlayer2 {
+    position: absolute;
+    top: 250px;
+    left: 0px;
+    background-color: blue;
+    opacity: 0.25;
+}
