@@ -12,17 +12,21 @@
         var divP2;
         var xP1 = 0;
         var xP2 = 0;
+        var xMeta = 500;
         var jugando = false;
+        var audioController;
+        
 
         function iniciar() {
             divP1 = document.getElementById("divPlayer1");
             divP2 = document.getElementById("divPlayer2");
+            audioController = document.getElementById("audioControl");
         }
         function start() {
             console.log("COMENZANDO");
             jugando = true;
-            divP1.style.opacity="1";
-            divP2.style.opacity="1";        
+            divP1.style.opacity = "1";
+            divP2.style.opacity = "1";
         }
         function avanzar(tecla) {
             if (jugando == true) {
@@ -34,13 +38,28 @@
                     xP2++;
                     divP2.style.left = xP2 + "px";
                 }
+                comprobarMeta();
             }
         }
+        function comprobarMeta(){
+            if (xP1>=xMeta){
+                jugando=false;
+                audioController.play();
+                alert("HA GANADO P1");
+                
+            }
+            if (xP2>=xMeta){
+                jugando=false;
+                audioController.play();
+                alert("HA GANADO P2");                
+            }
+        }
+
     </script>
 </head>
 
 <body onload="iniciar()" onkeyup="avanzar(event)">
-    <div id="formulario">
+   <div id="formulario">
         <input type="text" name="namePlayer1" id="namePlayer1" placeholder="Player 1">
         <input type="text" name="namePlayer2" id="namePlayer2" placeholder="Player 2">
         <input type="button" value="Start" onclick="start()">
@@ -54,11 +73,12 @@
                 <img src="images/player2.png" width="200">
             </div>
         </div>
-
-
-
-
     </div>
+    <img src="images/meta.png" id="meta">
+    <audio id="audioControl">
+        <source src="./media/win.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio> 
 </body>
 
 </html>

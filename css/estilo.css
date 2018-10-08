@@ -14,3 +14,15 @@
     background-color: blue;
     opacity: 0.25;
 }
+
+#audioControl {
+    position: absolute;
+    top: 500px;
+    left:0px;
+}
+
+#meta {
+    position: absolute;
+    top: 30px;
+    left: 500px;
+}
